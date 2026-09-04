@@ -1,0 +1,10 @@
+.app-footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #f1f1f1;
+  color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}

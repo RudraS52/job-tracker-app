@@ -1,0 +1,18 @@
+.job-column {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  width: 23%;
+  min-height: 300px;
+}
+
+.job-column h2 {
+  text-align: center;
+  color: #333;
+}
+
+.empty-column {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+}

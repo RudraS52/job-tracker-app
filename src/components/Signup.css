@@ -1,39 +1,22 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
-}
-
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1;
-  padding: 20px;
-}
-/* Add in App.css or create Auth.css and import in Login and Signup */
-.auth-form {
+/* Signup.css */
+.signup-form {
   max-width: 400px;
   margin: 80px auto;
   padding: 30px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  background-color: #f9f9f9;
+  background-color: #f7fdf7;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.auth-form h2 {
+.signup-form h2 {
   margin-bottom: 20px;
   font-size: 28px;
   color: #2c3e50;
 }
 
-.auth-form input {
+.signup-form input {
   width: 90%;
   padding: 12px 15px;
   margin: 10px 0;
@@ -42,16 +25,16 @@ body {
   font-size: 16px;
 }
 
-.auth-form input:focus {
-  border-color: #4caf50;
+.signup-form input:focus {
+  border-color: #2196f3;
   outline: none;
 }
 
-.auth-form button {
+.signup-form button {
   width: 95%;
   padding: 12px;
   margin-top: 15px;
-  background-color: #4caf50;
+  background-color: #2196f3;
   color: white;
   border: none;
   border-radius: 6px;
@@ -60,20 +43,20 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.auth-form button:hover {
-  background-color: #45a049;
+.signup-form button:hover {
+  background-color: #1976d2;
 }
 
-.auth-form p {
+.signup-form p {
   margin-top: 15px;
   font-size: 14px;
 }
 
-.auth-form a {
-  color: #4caf50;
+.signup-form a {
+  color: #2196f3;
   text-decoration: none;
 }
 
-.auth-form a:hover {
+.signup-form a:hover {
   text-decoration: underline;
 }

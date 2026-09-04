@@ -1,0 +1,6 @@
+.job-board {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 20px;
+}
