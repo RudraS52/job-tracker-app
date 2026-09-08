@@ -54,6 +54,14 @@ function App() {
     setJobs(updatedJobs);
   };
 
+  const updateJob = (id, updatedJob) => {
+  const updatedJobs = jobs.map((job) =>
+    job.id === id ? updatedJob : job
+  );
+
+  setJobs(updatedJobs);
+};
+
   return (
     <Router>
       <div className="App">
@@ -66,14 +74,22 @@ function App() {
             <Route path="/signup" element={<Signup />} />
 
             {/* 🔐 Protected Dashboard */}
-            <Route path="/dashboard" element={
-              <ProtectedRoute user={user}>
-                <>
-                  <JobForm addJob={addJob} />
-                  <JobBoard jobs={jobs} deleteJob={deleteJob} />
-                </>
-              </ProtectedRoute>
-            } />
+<Route
+  path="/dashboard"
+  element={
+    <ProtectedRoute user={user}>
+      <>
+        <JobForm addJob={addJob} />
+
+        <JobBoard
+          jobs={jobs}
+          updateJob={updateJob}
+          deleteJob={deleteJob}
+        />
+      </>
+    </ProtectedRoute>
+  }
+/>
 
             {/* Optional Job Search Page */}
             <Route path="/job-search" element={<JobSearch />} />

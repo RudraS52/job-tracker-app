@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import './JobForm.css';
 
@@ -5,89 +6,36 @@ const JobForm = ({ addJob }) => {
   const [company, setCompany] = useState('');
   const [position, setPosition] = useState('');
   const [status, setStatus] = useState('Applied');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
 
-// 🛠️ API call to fetch live job titles
-const fetchJobs = async (query) => {
-  try {
-    const res = await fetch(`https://remotive.io/api/remote-jobs?search=${query}`);
-    const data = await res.json();
-    setSuggestions(data.jobs.slice(0, 5)); // show top 5 results
-  } catch (error) {
-    console.error('Error fetching jobs:', error);
-  }
-};
-
-
-
-  // 👀 Live search as user types
-  const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setSearchQuery(value);
-
-    if (value.trim().length > 2) { // only fetch if 3+ characters
-      fetchJobs(value);
-    } else {
-      setSuggestions([]);
-    }
-  };
-
-  // 🖱️ When a suggestion is clicked
-  const handleSuggestionClick = (job) => {
-    setCompany(job.company_name);
-    setPosition(job.title);
-    setSearchQuery(job.title);
-    setSuggestions([]);
-  };
-
-  // ✅ Add job to tracker
+  // Add job application
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!company || !position) {
+    // Validate required fields
+    if (!company.trim() || !position.trim()) {
       alert('Please fill all fields.');
       return;
     }
 
+    // Create new job object
     const newJob = {
-      id: Date.now(),
-      company,
-      position,
+      company: company.trim(),
+      position: position.trim(),
       status,
     };
 
+    // Send job to App.js
     addJob(newJob);
 
     // Reset form
     setCompany('');
     setPosition('');
     setStatus('Applied');
-    setSearchQuery('');
-    setSuggestions([]);
   };
 
   return (
     <form className="job-form" onSubmit={handleSubmit}>
       <h2>Add Job Application</h2>
-
-      <input
-        type="text"
-        placeholder="Search jobs by title..."
-        value={searchQuery}
-        onChange={handleSearchChange}
-      />
-
-      {/* Suggestions dropdown */}
-      {suggestions.length > 0 && (
-        <ul className="suggestions-list">
-          {suggestions.map((job, index) => (
-            <li key={index} onClick={() => handleSuggestionClick(job)}>
-              {job.title} @ {job.company_name}
-            </li>
-          ))}
-        </ul>
-      )}
 
       <input
         type="text"
@@ -103,7 +51,10 @@ const fetchJobs = async (query) => {
         onChange={(e) => setPosition(e.target.value)}
       />
 
-      <select value={status} onChange={(e) => setStatus(e.target.value)}>
+      <select
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+      >
         <option value="Applied">Applied</option>
         <option value="Interview">Interview</option>
         <option value="Offer">Offer</option>
@@ -116,3 +67,4 @@ const fetchJobs = async (query) => {
 };
 
 export default JobForm;
+

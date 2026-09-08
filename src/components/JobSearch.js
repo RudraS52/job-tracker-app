@@ -23,7 +23,7 @@ const JobSearch = () => {
 
       try {
         const response = await fetch(
-          'https://api.jobopportunitiesapi.org/public/jobs?country=IN&limit=50'
+          'https://api.jobopportunitiesapi.org/public/jobs?country=IN&limit=100'
         );
 
         if (!response.ok) {
@@ -257,11 +257,12 @@ const JobSearch = () => {
                 <strong>Location:</strong>{' '}
                 {job.location || 'N/A'}
               </p>
-
-              <p>
-                <strong>Work Mode:</strong>{' '}
-                {job.remote || 'N/A'}
-              </p>
+<p>
+  <strong>Work Mode:</strong>{' '}
+  {job.remote? job.remote.replace(/_/g, ' ')
+.replace(/\b\w/g, char => char.toUpperCase())
+    : 'Not specified'}
+</p>
 
               <a
                 href={job.apply_url}
