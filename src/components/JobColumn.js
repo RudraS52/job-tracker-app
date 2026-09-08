@@ -30,6 +30,6 @@ const JobColumn = ({
 
     </div>
   );
-};
+}; 
 
 export default JobColumn;
