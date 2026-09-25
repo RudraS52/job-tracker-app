@@ -44,3 +44,11 @@
 .suggestions-list li:hover {
   background-color: #f0f0f0;
 }
+button  {
+  background-color: #252a7a !important;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
