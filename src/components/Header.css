@@ -67,4 +67,21 @@
     gap: 0.75rem;
     margin-top: 0.75rem;
   }
+
+  /* src/components/Header.css */
+
+.user-email-badge {
+  font-size: 13px !important;
+  color: #475569 !important;        /* Smooth slate gray font text */
+  background-color: #f1f5f9;       /* Light, subtle backdrop fill */
+  padding: 6px 14px;
+  border-radius: 9999px;            /* Generates a perfectly round pill capsule badge shape */
+  border: 1px solid #e2e8f0;       /* Crisp border separator */
+  font-weight: 500;
+}
+
+.user-email-badge strong {
+  color: #1e293b;                  /* Dark slate pop accent for the raw email address string */
+}
+
 }
