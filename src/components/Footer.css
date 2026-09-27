@@ -1,10 +1,27 @@
+/* src/components/Footer.css */
+
 .app-footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #f1f1f1;
-  color: #333;
-  position: fixed;
-  bottom: 0;
+  box-sizing: border-box;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
+  padding: 20px 30px;
+  background-color: #0f172a; /* Deep slate background matching premium tech apps */
+  color: #94a3b8;           /* Muted grayish-blue text that is easy on the eyes */
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  font-size: 14px;
+  font-weight: 400;
+  
+  /* 🛡️ Layout Stabilization: Ensures the footer pushes smoothly to the bottom */
+  margin-top: auto; 
+}
+
+.app-footer p {
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+/* Subtle highlights for your name to make it look premium */
+.app-footer p strong {
+  color: #3b82f6; /* Subtle accent blue highlighting the developer's name */
+  font-weight: 500;
 }

@@ -1,54 +1,96 @@
+/* src/components/JobForm.css */
+
+/* --- Primary Form Structure Container --- */
 .job-form {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto 30px auto; /* Centers the form bar and adds margin space above columns */
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  /* Layout alignment rule definitions */
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 30px;
+  justify-content: center;
+  gap: 16px; /* Dynamic horizontal gap separation padding between fields */
+  flex-wrap: wrap; /* 🛡️ Defensive wrap block prevents off-screen breakage */
 }
 
+/* Title text headings configuration styles */
+.job-form h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  white-space: nowrap; /* Keeps the title text from breaking onto multiple lines */
+}
+
+/* --- Input Fields & Dropdowns Spacing Parameters --- */
 .job-form input,
 .job-form select {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  min-width: 180px; /* Establishes a comfortable reading width parameter */
+  flex: 1 1 auto;   /* Allows fields to expand and balance empty workspace gaps naturally */
+  transition: all 0.2s ease;
 }
 
+.job-form input:focus,
+.job-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* --- Form Submit Execution Buttons --- */
 .job-form button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
+  box-sizing: border-box;
+  background-color: #252a7a; /* Preserves your exact dark professional blue color accent */
+  color: #ffffff;
   border: none;
-  border-radius: 5px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  flex: 0 0 auto; /* Button maintains its structural footprint without stretching awkwardly */
 }
 
 .job-form button:hover {
-  background-color: #45a049;
-}
-.suggestions-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-height: 150px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: #1c205e; /* Slight deep accent shade on hover interactions */
 }
 
-.suggestions-list li {
-  padding: 8px 12px;
-  cursor: pointer;
-}
+/* 📱 MOBILE RESPONSIVE LAYOUT OVERRIDES BREAKPOINTS */
+@media (max-width: 768px) {
+  .job-form {
+    flex-direction: column; /* 👈 CRUCIAL: Stacks form items vertically on tablets and mobile screens */
+    align-items: stretch;   /* Forces input boxes to expand cleanly to fill full content borders */
+    gap: 12px;
+    padding: 20px 15px;
+    margin: 15px auto;
+  }
 
-.suggestions-list li:hover {
-  background-color: #f0f0f0;
-}
-button  {
-  background-color: #252a7a !important;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+  .job-form h2 {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  
+  .job-form input,
+  .job-form select,
+  .job-form button {
+    width: 100% !important; /* Force complete mobile screen usage footprint */
+    min-width: 100%;
+  }
 }
