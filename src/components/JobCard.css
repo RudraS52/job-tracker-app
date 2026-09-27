@@ -1,52 +1,109 @@
-/* --- Creative Button (Preserving exact layout) --- */
-.job-card button {
-  background-color: #252a7a;
-  color: white;
-  border: none;
-  padding: 8px 12px;       /* ⚡ Exact original padding */
-  margin-right: 5px;       /* ⚡ Exact original margin */
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
-  transition: all 0.3s ease;  
-  display: inline-block;   /* Force absolute inline layout compliance */
-  vertical-align: middle;  /* Keeps it perfectly level with the select dropdown */
-}
-
-.job-card button:hover {
-  background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
-  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
-}
-
-.job-card button:active {
-  transform: translateY(0);
-}
-
-/* --- Creative Dropdown (Fixes the initial blank/white flash) --- */
+/* --- Base Structural Rule for all Card Actions --- */
+.job-card .edit-btn,
+.job-card .delete-btn,
 .job-card select {
-  background-color: #252a7a; /* ⚡ Fixes the initial white/blank flash issue */
-  /* background: linear-gradient(135deg, #252a7a 0%, #388E3C 100%); */
   color: white;
   border: none;
   padding: 8px 12px;       /* ⚡ Exact original padding */
-  margin-right: 5px;       /* ⚡ Exact original margin */
+  margin-right: 8px;       /* ⚡ Exact original margin */
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.3s ease;  
   display: inline-block;   /* Force absolute inline layout compliance */
-  vertical-align: middle;  /* Keeps it perfectly level with buttons */
+  vertical-align: middle;  /* Keeps elements perfectly level */
+  transition: box-shadow 0.3s ease; /* Smooth elevation change only */
+}
+
+/* --- Edit Button: Fixed Professional Green --- */
+.job-card .edit-btn {
+  background-color: #10b981 !important; /* Premium production emerald green */
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.job-card .edit-btn:hover {
+  background-color: #10b981; /* 🚫 Avoids hover shifts: stays green */
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.35); /* Subtle depth change only */
+}
+
+/* --- Delete Button: Fixed Professional Red --- */
+.job-card .delete-btn {
+  background-color: #ef4444 !important; /* Premium production crimson red */
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+.job-card .delete-btn:hover {
+  background-color: #ef4444; /* 🚫 Avoids hover shifts: stays red */
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.35); /* Subtle depth change only */
+}
+
+/* --- Dropdown Layout Configuration (No white flash) --- */
+.job-card select {
+  background-color: #252a7a; 
+  box-shadow: 0 2px 4px rgba(37, 42, 122, 0.15);
 }
 
 .job-card select:hover {
   background-color: #252a7a;
-  /* background-image: linear-gradient(135deg, #474fc2 0%, #3037ab 100%); */
+  box-shadow: 0 4px 8px rgba(37, 42, 122, 0.25);
 }
 
-/* Options list styling inside the dropdown menu tree */
 .job-card select option {
   background-color: #252a7a;
   color: white;
   padding: 8px;
 }
+/* --- Flex Wrapper Container for Card Action Bar --- */
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* 🛡️ Defensive wrap: drops buttons down if column is narrow instead of overlapping */
+  gap: 10px;       /* ⚡ Dynamic uniform spacing between all buttons and dropdowns */
+  margin-top: 12px;
+}
+
+/* --- Base Structural Reset --- */
+.job-card .edit-btn,
+.job-card .delete-btn,
+.job-card .save-btn,
+.job-card .cancel-btn,
+.job-card select {
+  color: white;
+  border: none;
+  padding: 8px 14px;       /* Increased horizontal padding for a premium click-target */
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;     /* 🚫 Prevents text like "Cancel" from splitting into two lines */
+  transition: all 0.2s ease;
+  margin: 0;               /* Reset old margins to rely cleanly on flex gap */
+}
+
+/* --- Save Action: Matching your Emerald Green theme --- */
+.job-card .save-btn {
+  background-color: #10b981; 
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+  margin:3px;
+}
+
+.job-card .save-btn:hover {
+  background-color: #10b981;
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.35);
+}
+
+/* --- Cancel Action: Professional Neutral Slate Gray --- */
+.job-card .cancel-btn {
+  background-color: #64748b; 
+  box-shadow: 0 2px 4px rgba(100, 116, 139, 0.2);
+}
+
+.job-card .cancel-btn:hover {
+  background-color: #64748b;
+  box-shadow: 0 4px 8px rgba(100, 116, 139, 0.35);
+}
+
+/* --- Keep your existing Edit, Delete, and Dropdown styles below --- */
+.job-card .edit-btn { background-color: #10b981; margin:5px; }
+.job-card .delete-btn { background-color: #ef4444; }
+.job-card select { background-color: #252a7a; }
+.job-card select option { background-color: #252a7a; color: white; padding: 8px; }

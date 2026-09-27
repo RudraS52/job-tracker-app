@@ -57,11 +57,11 @@ const JobCard = ({ job, updateJob, deleteJob }) => {
             placeholder="Company"
           />
 
-          <button onClick={handleSave}>
+          <button className="save-btn" onClick={handleSave}>
             Save
           </button>
 
-          <button onClick={() => setIsEditing(false)}>
+          <button className="cancel-btn" onClick={() => setIsEditing(false)}>
             Cancel
           </button>
         </>
@@ -89,11 +89,11 @@ const JobCard = ({ job, updateJob, deleteJob }) => {
               <option value="Rejected">Rejected</option>
             </select>
 
-            <button onClick={() => setIsEditing(true)}>
+            <button className="edit-btn" onClick={() => setIsEditing(true)}>
               Edit
             </button>
 
-            <button onClick={handleDelete}>
+            <button className="delete-btn" onClick={handleDelete}>
               Delete
             </button>
 
