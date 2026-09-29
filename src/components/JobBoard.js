@@ -3,6 +3,7 @@ import JobColumn from './JobColumn';
 import './JobBoard.css';
 
 const STATUSES = [
+  'Wishlist',   // 👈 New entry point for job leads from the search page!
   'Applied',
   'Interview',
   'Offer',

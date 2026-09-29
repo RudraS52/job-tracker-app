@@ -2,98 +2,114 @@
 
 /* --- Primary Kanban Grid Container Wrapper --- */
 .job-board {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100% !important; /* Force the board container to break free of narrow constraints */
-  padding: 30px 24px;
-  margin: 0 auto;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 24px 16px !important;
+  margin: 0 auto !important;
   
-  /* ⚡ SWITCH TO FLEX LAYOUT: Distributes all columns horizontally across the desktop width */
-  display: flex !important;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
+  /* ⚡ FORCE FIXED 5-COLUMN MATRIX FRAMEWORK */
+  display: grid !important;
+  /* 🛡️ Explicitly tells the browser to create exactly 5 columns of equal size. Wrapping is physically impossible now. */
+  grid-template-columns: repeat(5, 1fr) !important; 
+  gap: 12px !important; /* Tight, compact gap spacing to stay within screen boundaries */
+  align-items: flex-start !important;
+  
+  /* Wipes out any residual pushing properties completely */
+  overflow-x: hidden !important;
+  white-space: normal !important;
 }
 
-/* --- Individual Column Tracks (Applied, Interview, Offer, Rejected) --- */
+/* --- Individual Column Tracks (Wishlist, Applied, Interview, Offer, Rejected) --- */
 .job-column {
-  box-sizing: border-box;
-  /* ⚡ FORCE FIXED EXPANSION: Tells each of the 4 columns to grab equal spacing share */
-  flex: 1 1 0px !important; 
-  min-width: 270px !important; /* Prevents columns from becoming unreadably thin */
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important; /* Allow internal content boxes to contract fluidly */
   
-  background-color: #f8fafc;
-  padding: 20px 16px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  min-height: 600px; /* Anchor standard vertical depth baseline tracks */
-  display: flex;
-  flex-direction: column;
+  background-color: #f8fafc !important;
+  padding: 16px 12px !important; 
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  min-height: 550px !important; 
+  display: flex !important;
+  flex-direction: column !important;
 }
 
-/* Column Header Titles */
+/* Column Header Title Labels */
 .job-column h3 {
-  margin: 0 0 16px 0;
-  font-size: 20px;
-  font-weight: 700;
-  color: #1e293b;
-  border-bottom: 2px solid #cbd5e1;
-  padding-bottom: 10px;
-  text-align: left;
+  margin: 0 0 14px 0 !important;
+  font-size: 15px !important; /* Highly balanced for 5-wide monitors */
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  border-bottom: 2px solid #cbd5e1 !important;
+  padding-bottom: 8px !important;
+  text-align: left !important;
 }
 
-/* --- Stack Container Inside Columns --- */
+/* --- Cards Container (Stacking Cards Safely) --- */
 .card-container {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  width: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-/* --- Clean Structure For Individual Card Entries --- */
+/* --- Complete Clean Structure For Individual Card Entries --- */
 .job-card {
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #ffffff;
-  padding: 3px !important;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
-              0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  text-align: left;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  padding: 14px !important; 
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  text-align: left !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  overflow: hidden !important;
+  word-wrap: break-word !important;
+  margin:3px;
 }
 
 .job-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
 }
 
 .job-card h4 {
-  margin: 0 0 6px 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #0f172a;
+  margin: 0 0 6px 0 !important;
+  font-size: 14px !important; 
+  font-weight: 600 !important;
+  color: #0f172a !important;
 }
 
 .job-card p {
-  margin: 4px 0;
-  font-size: 14px;
-  color: #475569;
+  margin: 4px 0 !important;
+  font-size: 12px !important; 
+  color: #475569 !important;
 }
 
-/* 📱 MOBILE RESPONSIVE OVERRIDES STACK */
+/* Compact layout button styles inside cards */
+.job-card select,
+.job-card button {
+  padding: 6px 10px !important;
+  font-size: 11px !important;
+}
+
+/* 📱 LAPTOPS & MOBILE SCREEN RESPONSIVE MEDIA OVERRIDES */
 @media (max-width: 1024px) {
   .job-board {
-    flex-direction: column !important; /* Safely drops columns into a vertical stack on small screens */
-    align-items: union;
-    gap: 24px;
-    padding: 3px !important;
+    /* Safe stack transition breakpoint for laptops and smaller screens */
+    grid-template-columns: 1fr !important; 
+    gap: 20px !important;
+    padding: 15px !important;
   }
   
   .job-column {
-    width: 100% !important;
-    min-height: auto;
+    min-height: auto !important; 
   }
+  
+  .job-column h3 { font-size: 18px !important; }
+  .job-card h4 { font-size: 16px !important; }
+  .job-card p { font-size: 14px !important; }
 }

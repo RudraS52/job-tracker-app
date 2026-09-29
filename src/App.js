@@ -181,7 +181,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {user && <Header />}
+        {user && <Header jobs={jobs} />}
         <div className="main-content">
           {loadingJobs && (
             <div style={{ position: "fixed", top: "20px", right: "20px", background: "#2563eb", color: "#fff", padding: "10px 20px", borderRadius: "20px", fontSize: "13px", zIndex: 9999, boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
@@ -208,7 +208,7 @@ function App() {
               }
             />
 
-            <Route path="/job-search" element={<JobSearch />} />
+            <Route path="/job-search" element={<JobSearch addJob={addJob} />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

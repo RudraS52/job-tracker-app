@@ -1,4 +1,13 @@
 /* src/components/Header.css */
+
+.header-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Primary Top Navigation Row */
 .header {
   box-sizing: border-box;
   width: 100%;
@@ -6,9 +15,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #0f172a; /* Deep Slate theme color matching footer */
+  background-color: #0f172a; /* Tech dark slate theme */
   color: #ffffff;
   border-bottom: 1px solid #1e293b;
+  font-family: 'Poppins', sans-serif;
 }
 
 .header h1 {
@@ -21,7 +31,7 @@
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px; /* Comfortable layout gaps between links */
 }
 
 .header-nav a {
@@ -36,36 +46,93 @@
   color: #3b82f6;
 }
 
-.logout-button {
-  background-color: #dc2626;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
+/* ⚡ RESTORED: Clean, premium light pill container styling for your email address */
+.user-email-badge {
+  font-size: 13px !important;
+  color: #475569 !important;        /* Slate gray text */
+  background-color: #f1f5f9;       /* Soft light background fill */
+  padding: 6px 14px;
+  border-radius: 9999px;            /* Perfect pill capsule format shapes */
+  border: 1px solid #e2e8f0;       /* Balanced border separator line */
   font-weight: 500;
-  font-size: 14px;
+  margin-right: 10px;               /* Force clear spacing buffer from dashboard link */
 }
 
-/* 📱 MOBILE RESPONSIVE MEDIA QUERY */
+.user-email-badge strong {
+  color: #1e293b;                  /* Dark emphasis text for the email address string */
+}
+
+.logout-button {
+  background-color: #dc2626; /* Deep professional red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #b91c1c;
+}
+
+/* 📊 DYNAMIC ANALYTICS HUD SUB-BAR PANEL */
+.analytics-subbar {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #1e293b; 
+  border-bottom: 1px solid #334155;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap; 
+}
+
+.metric-item {
+  font-size: 13px;
+  color: #94a3b8; 
+  font-family: 'Poppins', sans-serif;
+}
+
+.metric-item strong {
+  color: #ffffff;
+  margin-left: 5px;
+  font-weight: 600;
+}
+
+.text-blue { color: #3b82f6 !important; }
+.text-purple { color: #a855f7 !important; }
+.text-green { color: #10b981 !important; }
+
+/* 📱 MOBILE SCREEN BEHAVIOR ADJUSTMENTS OVERRIDES */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column; /* Stacks title, badge, and navigation links vertically */
+    flex-direction: column;
     gap: 12px;
     padding: 15px;
     text-align: center;
   }
 
   .header-nav {
-    flex-direction: column; /* Stack navigational elements on very narrow viewports */
+    flex-direction: column;
     width: 100%;
-    gap: 10px;
+    gap: 12px;
   }
 
   .user-email-badge {
-    margin-right: 0 !important; /* Reset horizontal spacing offset models */
+    margin-right: 0 !important;
     width: 100%;
     box-sizing: border-box;
     text-align: center;
+  }
+
+  .analytics-subbar {
+    justify-content: center;
+    gap: 16px;
+    padding: 10px;
   }
 }

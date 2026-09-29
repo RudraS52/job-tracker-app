@@ -1,144 +1,254 @@
+/* src/components/JobSearch.css */
+
 .job-search {
-  max-width: 800px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
-  text-align: center;
-  background-color: transparent; /* ✅ Remove card-like background */
+  padding: 0 20px;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden !important;
 }
 
 .job-search h2 {
   font-size: 32px;
   margin-bottom: 24px;
-  color: #1f2937;
+  color: #1e293b;
+  font-weight: 700;
+  text-align: left;
 }
 
-.search-bar {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.job-search input {
-  width: 60%;
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.job-search input:focus {
-  border-color: #4ade80;
-  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
-  outline: none;
-}
-
-.job-search button {
-  padding: 12px 24px;
-  background-color: #4ade80;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.job-search button:hover {
-  background-color: #22c55e;
-  transform: scale(1.05);
-}
-
+/* --- Full Width Proportional Filters --- */
 .filters {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .filters select {
-  min-width: 180px;
-  padding: 10px 16px;
-  font-size: 15px;
-  background-color: #f8fafc; /* Soft light gray */
-  color: #1f2937; /* Dark text */
-  border: 1px solid #d1d5db; /* Light border */
+  box-sizing: border-box;
+  width: 200px;
+  padding: 10px 14px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='%23667' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 18px;
-  padding-right: 40px; /* Space for arrow */
   cursor: pointer;
 }
 
 .filters select:hover {
-  background-color: #f1f5f9;
-  border-color: #cbd5e1;
+  background-color: #f8fafc;
+  border-color: #94a3b8;
 }
 
 .filters select:focus {
-  border-color: #4ade80;
-  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  border-color: #252a7a;
+  box-shadow: 0 0 0 3px rgba(37, 42, 122, 0.15);
   outline: none;
 }
 
+/* --- Wide Stretched Search Bar --- */
+.search-bar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  width: 100%;
+}
 
-.filters select:focus {
-  border-color: #4ade80;
+.job-search input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #0f172a;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.job-search input:focus {
+  border-color: #252a7a;
+  box-shadow: 0 0 0 3px rgba(37, 42, 122, 0.15);
   outline: none;
 }
 
+/* Primary Search Execution Button */
+.job-search > .search-bar > button {
+  box-sizing: border-box;
+  padding: 12px 28px;
+  background-color: #252a7a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.job-search > .search-bar > button:hover {
+  background-color: #1c205e;
+  transform: translateY(-1px);
+}
+
+/* --- Results Cards Wrapper Layout --- */
 .job-results {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.job-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 8px;
+.job-results .job-card {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  border-radius: 12px;
   text-align: left;
-  transition: box-shadow 0.3s;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
-.job-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.job-results .job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
 }
 
-.job-card h3 {
-  margin-bottom: 8px;
-  font-size: 20px;
+.job-results .job-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
 }
 
-.job-card p {
-  margin: 4px 0;
+.job-results .job-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #475569;
 }
 
-.job-card a {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
-  margin-right:30px;
+.search-loading, .no-results {
+  font-size: 16px;
+  color: #64748b;
+  padding: 40px;
+  text-align: center;
 }
 
-.job-card a:hover {
-  text-decoration: underline;
+/* --- Action Controls Box Container Layout --- */
+.search-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* --- UNIFIED COMPLIANCE BUTTON SIZING AND ALIGNMENT MATRIX --- */
+.view-job-link,
+.track-action-btn,
 .save-button {
-  margin-top: 10px;
-  margin-right:10px;
-  background-color: transparent;
-  color: #facc15; /* amber star color */
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 30px !important;       /* Unified exact structural height */
+  padding: 0 18px !important;    /* Unified exact horizontal text padding bounds */
+  font-size: 13px !important;    /* Unified uniform typography scaling */
+  font-weight: 600 !important;   
+  border-radius: 6px !important;
+  border: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  margin: 0 !important;          
+}
+
+/* View Job Button: Dark Blue theme */
+.view-job-link {
+  background-color: #252a7a !important;
+  color: #ffffff !important;
+}
+
+.view-job-link:hover {
+  background-color: #1c205e !important;
+}
+
+/* 1-Click Track Button: Tech Blue theme */
+.track-action-btn {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.track-action-btn:hover:not(:disabled) {
+  background-color: #2563eb !important;
+}
+
+.track-action-btn.is-tracked {
+  background-color: #10b981 !important; /* Emerald green state indicator handles */
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+}
+
+/* Favorites Save Button: Amber-Yellow Block Box Theme */
+.save-button {
+  background-color: #eab308 !important; 
+  color: #0f172a !important;            
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.save-button:hover {
+  background-color: #ca8a04 !important; 
+  transform: none !important;            
+}
+
+/* 📱 MOBILE VIEWPORT STRUCTURAL RESPONSIVE OVERRIDES */
+@media (max-width: 640px) {
+  .filters, .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .filters select, .job-search input, .job-search > .search-bar > button {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .search-card-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .view-job-link,
+  .track-action-btn,
+  .save-button {
+    width: 100% !important;
+    height: 40px !important;
+  }
 }

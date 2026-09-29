@@ -55,6 +55,7 @@ const JobForm = ({ addJob }) => {
         value={status}
         onChange={(e) => setStatus(e.target.value)}
       >
+        <option value="Wishlist">Wishlist (Lead)</option> {/* 👈 Added */}
         <option value="Applied">Applied</option>
         <option value="Interview">Interview</option>
         <option value="Offer">Offer</option>

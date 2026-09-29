@@ -1,3 +1,12 @@
+
+/* src/App.css safety check rules */
+
+html, body, #root, .App {
+  max-width: 100%;
+  overflow-x: hidden !important; /* 🛡️ Iron-clad defensive gate: completely clips horizontal scrolls browser-wide */
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -76,4 +85,55 @@ body {
 
 .auth-form a:hover {
   text-decoration: underline;
+}
+
+/* src/components/JobSearch.css button extensions */
+
+.track-action-btn {
+  background-color: #2563eb; /* Royal blue for primary action */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.track-action-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* 🔄 Loading state styling properties */
+.track-action-btn.is-loading {
+  background-color: #64748b;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* ✓ Success state styling properties */
+.track-action-btn.is-tracked {
+  background-color: #10b981; /* Changes to solid green when added successfully */
+  color: white;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Anchor styling adjustments inside search grid structures */
+.view-job-link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #252a7a; /* Preserves your style header matching colors */
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.view-job-link:hover {
+  background-color: #1c205e;
 }
